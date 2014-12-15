@@ -1,0 +1,20 @@
+<h1><%= link_to @link.title, @link.url %></h1>
+<h3>Votes: <%= @link.votes %></h3>
+
+<h2>Comments</h2>
+<% @link.comments.each do |comment| %>
+  <div class='well'>
+    <p><%= comment.body %></p>
+  </div>
+<% end %>
+
+<h2>New Comment</h2>
+<%= form_for [@link, @comment] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+
+  <%= f.submit %>
+<% end %>
+
+
+<%= link_to 'Back to Front Page', root_path, class: 'btn btn-default' %>

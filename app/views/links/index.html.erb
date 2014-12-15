@@ -1,0 +1,10 @@
+<h1>Front Page</h1>
+<% @links.each do |link| %>
+  <div class='well'>
+    <h1><%= link_to link.title, link.url %></h1>
+    <%= link.votes %>
+    <%= link_to raw("<i class=\"glyphicon glyphicon-chevron-up\"> Upvote</i>"), upvote_path(link), class: "btn btn-success", method: :put %>
+    <%= link_to raw("<i class=\"glyphicon glyphicon-chevron-down\"> Downvote</i>"), downvote_path(link), class: "btn btn-danger", method: :put %>
+    <%= link_to raw("<i class=\"glyphicon glyphicon-comment\"> Comments</i>"), link_path(link), class: "btn btn-default" %>
+  </div>
+<% end %>
